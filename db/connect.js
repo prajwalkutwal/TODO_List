@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-
-const connectDB = (url) => {
-  return mongoose.connect(url, {
+const mongo_connect = "mongodb+srv://PrajwalK:QazWsxEdc@cluster0.x5p5u.mongodb.net/TODO_List?retryWrites=true&w=majority"
+const connectDB = (mongo_connect) => {
+  return mongoose.connect(mongo_connect, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,

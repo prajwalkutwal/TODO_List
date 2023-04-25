@@ -3,7 +3,7 @@ const app = express();
 const tasks = require('./routes/tasks');
 const connectDB = require('./db/connect');
 // Importing the mogodb secret from env
-require('dotenv').config();   
+// require('dotenv').config();   
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
@@ -22,7 +22,7 @@ const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    await connectDB("hello");
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );

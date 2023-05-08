@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todol-deployment
+  labels:
+    app: todol
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todol
+  template:
+    metadata:
+      labels:
+        app: todol 
+    spec:
+      containers:
+      - name: tdserver
+        image: prajwalkoo7/todol:latest
+        ports:
+        - containerPort: 5000

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todol-deployment
+  labels:
+    app: todol
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todol
+  template:
+    metadata:
+      labels:
+        app: todol 
+    spec:
+      containers:
+      - name: nodeserver
+        image: prajwalkoo7/todol:latest
+        ports:
+        - containerPort: 5000
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: todol-service
+spec:
+  selector:
+    app: todol 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+    nodePort: 31110

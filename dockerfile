@@ -7,5 +7,7 @@ RUN npm install
 
 COPY . /home/TODO_List/
 
+EXPOSE 5000
+
 
 CMD ["node", "app.js"]
